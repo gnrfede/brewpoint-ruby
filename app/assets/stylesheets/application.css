@@ -15,19 +15,10 @@
  */
 
 body {
-    padding: 70px;
+    padding: 60px;
+    background-color: #DADADA;
 }
 
 .navbar-fixed-top {
-    background-color: #98AC74;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
-
-.navbar .nav > li > a {
-    color: #FFFFFF
-}
-
-.navbar-brand {
-    color: #FFFFFF
-}
-

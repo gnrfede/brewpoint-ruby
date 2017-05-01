@@ -12,5 +12,8 @@
     <schema id="6" parent="1" name="sakila"/>
     <schema id="7" parent="1" name="sys"/>
     <schema id="8" parent="1" name="world"/>
+    <schema id="9" parent="1" name="brewpoint"/>
+    <schema id="10" parent="1" name="brewpoint_uat"/>
+    <schema id="11" parent="1" name="control_de_planta_development"/>
   </database-model>
 </dataSource>
