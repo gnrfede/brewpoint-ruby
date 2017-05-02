@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <%= form_for ([@user, @user.orders.build]) do |f| %>
+        <div class="form-group">
+          <%= f.label :delivery_date, "Fecha de Entrega" %>
+          <div class="input-group date">
+            <%= f.text_field :delivery_date, id: "datetimepicker_delivery", class: "form-control" %>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :company, "Cervería" %>
+          <%= f.select :company, Company.all.collect {|c| [c.name, c.id]}, {}, {:class => "form-control"} %>
+        </div>
+        <% unless :company.nil? %>
+          <%= f.fields_for :order_product do |op| %>
+            <div class="form-group">
+              <%= op.label :product, "Producto" %>
+              <%= op.select :product, Product.find_by_company_id(1) {|p| [p.name, p.id]}, {include_blank: true}, {:class => "form-control"} %>
+            </div>
+          <% end %>
+        <% end %>
+        <%= f.submit "Crear Pedido", class: "btn secondary-color pull-right" %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $(function () {
+      $('#datetimepicker_delivery').datetimepicker({
+          format: 'YYYY-MM-DD hh:mm:ss ZZ'
+      });
+  })
+</script>
