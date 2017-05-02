@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
       @orders = @user.orders
       if not @user.company.nil?
         @company_orders = @user.company.orders
-
       end
     end
   end
