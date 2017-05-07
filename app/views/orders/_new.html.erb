@@ -12,16 +12,13 @@
         </div>
         <div class="form-group">
           <%= f.label :company, "Cervería" %>
-          <%= f.select :company, Company.all.collect {|c| [c.name, c.id]}, {}, {:class => "form-control"} %>
+          <%= f.select :company, Company.all.collect {|c| [c.name, c.id]}, {include_blank: true}, {:class => "form-control", :id => "company"} %>
         </div>
-        <% unless :company.nil? %>
-          <%= f.fields_for :order_product do |op| %>
-            <div class="form-group">
-              <%= op.label :product, "Producto" %>
-              <%= op.select :product, Product.find_by_company_id(1) {|p| [p.name, p.id]}, {include_blank: true}, {:class => "form-control"} %>
-            </div>
-          <% end %>
-        <% end %>
+        <div id="product">
+          <%= f.label :product %>
+          <%=	f.select :product, Product.all.collect {|p| [p.name, p.id]}, {include_blank: true}, {:class => "form-control"} %>
+
+        </div>
         <%= f.submit "Crear Pedido", class: "btn secondary-color pull-right" %>
     <% end %>
   </div>

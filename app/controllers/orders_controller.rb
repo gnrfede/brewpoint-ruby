@@ -5,6 +5,11 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
+  def create
+    @order = current_user.orders.build(order_params)
+    @order.products
+  end
+
   def show
     @user = User.find(session[:user_id])
     if @user
@@ -14,5 +19,11 @@ class OrdersController < ApplicationController
       end
     end
   end
+
+  private
+  def order_params
+    params.require(:order).permit(:delivery_date, :company)
+  end
+
 
 end
