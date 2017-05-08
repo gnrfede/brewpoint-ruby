@@ -3,6 +3,17 @@
     border-color: #558B2F;
 }
 
+.primary-header {
+    padding: 10px;
+    background-color: #EEEEEE;
+    text-align: center;
+}
+
+.primary-color-light {
+    background-color: #85bb5c !important;
+    color: #FFFFFF !important;
+}
+
 .primary-alternative{
     background-color: #255D00;
     border-color: #255D00 !important;

@@ -15,14 +15,14 @@
         <% else %>
             <ul class="nav navbar-nav">
               <li>
-                <%= link_to new_company_path, class: "primary-link" do%>
+                <%= link_to new_company_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => "#modal-window", :class => "prevent-default primary-link"} do %>
                       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crear Fabrica
                 <% end %>
               </li>
             </ul>
         <% end %>
         <ul class="nav navbar-nav pull-right">
-          <li class="dropdown">
+          <li>
             <%= link_to current_user.first_name + " " + current_user.last_name, "#", class: "primary-link" %>
           </li>
           <li><%= link_to "Cerrar Sesión", logout_path, method: "delete", class: "primary-link" %></li>

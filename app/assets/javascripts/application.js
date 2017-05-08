@@ -16,3 +16,9 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require_tree .
+
+$(document).on("torbulinks:load", function(){
+    $('a.prevent-default').click(function(event){
+        event.preventDefault();
+    });
+})
