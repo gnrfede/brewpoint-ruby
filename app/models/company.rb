@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: { message: "El campo nombre no puede estar vacio"}, uniqueness: { message: "Ya existe una fábrica con éste nombre"}
 
   has_many :users
   has_many :orders

@@ -7,6 +7,24 @@
     margin: 5px 0px;
 }
 
+.right-holder {
+    float:right;
+    position: relative;
+}
+.circular-link {
+    background-color: #00695C;
+    color: #EEEEEE;
+    border: 1px #00695C;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    padding: 15px;
+    text-align: center;
+    line-height: 50px;
+}
+.circular-link:hover{
+    color: #EEEEEE;
+}
+
 .card .input-text {
     margin: 10px;
 }
@@ -15,11 +33,21 @@
     color: #003D33;
 }
 
-.card .input-text > input[type="text"]{
+.field_with_errors > input[type="text"] {
+    border-bottom: 1px solid red !important;
+}
+
+.error-message {
+    font-style: italic;
+    font-size: smaller;
+}
+
+.card .input-text input[type="text"]{
      border: none;
      border-bottom: 1px solid grey;
      width: 100%;
 }
+
 
 .card .input-text > input[type="email"]{
     border: none;

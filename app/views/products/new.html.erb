@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <div class="card">
+      <%= form_for @product, url: company_products_path(@company) do |f| %>
+          <div class="input-text">
+            <%= f.label :name, "Nombre" %>
+            <%= f.text_field :name, placeholder: "Producto", autofocus: true %>
+            <% if @product.errors.any? && @product.errors[:name] %>
+                <div class="error-message">
+                  <% @product.errors[:name].each do |m| %>
+                      <%= m %>
+                  <% end %>
+                </div>
+            <% end %>
+          </div>
+          <div class="input-text">
+            <%= f.label :description, "Descripción" %>
+            <%= f.text_field :description, placeholder: "Descripción" %>
+          </div>
+          <%= f.submit "Crear Producto" %>
+      <% end %>
+    </div>
+  </div>
+</div>

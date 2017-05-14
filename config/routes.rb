@@ -10,6 +10,13 @@ Rails.application.routes.draw do
 
   resources :companies do
     resources :users
+    resources :orders
+    resources :supplies
+    resources :suppliers
+    resources :products do
+      resources :batches
+    end
+    resources :recipes
   end
 
 end

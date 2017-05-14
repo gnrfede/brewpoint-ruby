@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <div class="card">
+      <%= form_for @company do |f| %>
+          <div class="input-text">
+            <%= f.label :name, "Nombre" %>
+            <%= f.text_field :name, placeholder: "Fabrica", autofocus: true %>
+            <% if @company.errors.any? && @company.errors[:name] %>
+                <div class="error-message">
+                  <% @company.errors[:name].each do |m| %>
+                      <%= m %>
+                  <% end %>
+                </div>
+            <% end %>
+          </div>
+          <%= f.submit "Crear Fabrica" %>
+      <% end %>
+    </div>
+  </div>
+</div>
