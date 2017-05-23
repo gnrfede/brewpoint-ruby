@@ -1,0 +1,21 @@
+<div class="contenedor">
+<div class="right-holder">
+  <%= link_to new_company_supplier_path(@company), :class => "circular-link" do %>
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  <% end %>
+</div>
+
+<% @suppliers.each do |p| %>
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <div class="card">
+          <p><%= p.name %></p>
+          <p><%= p.address %></p>
+          <p><%= p.phone %></p>
+          <p><%= p.mail %></p>
+          <p><%= p.description %></p>
+        </div>
+      </div>
+    </div>
+<% end %>
+</div>
