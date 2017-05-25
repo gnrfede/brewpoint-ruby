@@ -19,17 +19,20 @@ html, body {
 
 @media (max-width: 768px) {
     .right-holder {
-        position: absolute;
-        bottom:0px;
-        right:0px;
+        position: fixed;
+        bottom:10px;
+        right:10px;
+        z-index: 9999;
     }
     
 }
 
 @media (min-width: 768px) {
     .right-holder {
-        float:right;
-        position: relative;
+        right: 25px;
+        top: 70px;
+        position: fixed;
+        z-index: 9999;
     }
 }
 
@@ -69,6 +72,12 @@ html, body {
      border: none;
      border-bottom: 1px solid grey;
      width: 100%;
+}
+
+.card .input-text input[type="number"]{
+    border: none;
+    border-bottom: 1px solid grey;
+    width: 100%;
 }
 
 
@@ -116,4 +125,8 @@ input:focus{
 
 .buttons {
     margin: 15px 10px;
+}
+
+.search-item {
+    background-color: #FFFFFF;
 }

@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <div class="card">
+      <%= form_for @supply, url: company_supplies_path(@company) do |f| %>
+          <div class="input-text">
+            <%= f.label :name, "Nombre" %>
+            <%= f.text_field :name, placeholder: "Insumo", autofocus: true %>
+            <% if @supply.errors.any? && @supply.errors[:name] %>
+                <div class="error-message">
+                  <% @supply.errors[:name].each do |m| %>
+                      <%= m %>
+                  <% end %>
+                </div>
+            <% end %>
+          </div>
+          <div class="input-text">
+            <%= f.label :amount, "Cantidad" %>
+            <%= f.number_field :amount %>
+          </div>
+          <div class="input-text">
+            <%= f.label :description, "Descripción" %>
+            <%= f.text_field :description, placeholder: "Descripción" %>
+          </div>
+          <div class="input-text">
+            <%= label_tag :supplier_name, "Proveedor" %>
+            <%= text_field_tag :supplier_name %>
+            <%= hidden_field_tag :supplier_id %>
+          </div>
+          <div class="buttons">
+            <%= f.submit "Crear Insumo" %>
+            <div class="cancel">
+              <%= link_to :back do %>
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+    $(document).on("turbolinks:load", function(){
+        var search_list = [];
+        var suppliers_list = jQuery.parseJSON('<%= raw @suppliers.to_json %>');
+        suppliers_list.forEach(function(item){
+            var supplier = {
+                label: item.name,
+                value: item.name,
+                id: item.id
+            }
+            search_list.push(supplier);
+      });
+        $("#supplier_name").autocomplete({
+            source: search_list,
+            select: function(event, ui) {
+                $("#supplier_name").val(ui.item.label);
+                $("#supplier_id").val(ui.item.id);
+            }
+        });
+    });
+<% end %>

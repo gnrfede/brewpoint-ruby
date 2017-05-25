@@ -41,10 +41,20 @@
         <% end %>
           </ul>
         <ul class="nav navbar-nav pull-right">
+          <% if current_user.company? %>
           <li>
-            <%= link_to current_user.first_name + " " + current_user.last_name, "#", class: "primary-link" %>
+            <%= link_to current_user.company.name, "#", class: "primary-link" %>
           </li>
-          <li><%= link_to "Cerrar Sesión", logout_path, method: "delete", class: "primary-link" %></li>
+          <% end %>
+          <li class="dropdown">
+            <a id="dLabel" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle primary-link">
+              <%= current_user.name %>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+              <li><%= link_to "Cerrar Sesión", logout_path, method: "delete" %></li>
+            </ul>
+          </li>
         </ul>
        <% else %>
           <ul class="nav navbar-nav pull-right">

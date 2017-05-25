@@ -12,12 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require turbolinks
 //= require moment
 //= require bootstrap-datetimepicker
 //= require_tree .
 
-$(document).on("torbulinks:load", function(){
+$(document).on("turbolinks:load", function(){
     $('a.prevent-default').click(function(event){
         event.preventDefault();
     });

@@ -19,6 +19,13 @@
             <%= f.password_field :password %>
           </div>
           <%= f.submit "Crear" %>
+          <div class="cancel-button col-md-offset-10 col-md-1">
+            <div class="text-center">
+               <%= link_to login_path, :class=>"" do %>
+                   <span class="glyphicon glyphicon-remove"></span> Cancelar
+               <% end %>
+            </div>
+          </div>
       <% end %>
     </div>
   </div>

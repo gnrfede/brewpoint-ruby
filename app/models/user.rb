@@ -11,4 +11,8 @@ class User < ApplicationRecord
   def company?
     not company.nil?
   end
+
+  def name
+    first_name + " " + last_name
+  end
 end
