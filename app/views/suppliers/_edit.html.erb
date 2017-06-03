@@ -1,0 +1,30 @@
+<div class="card">
+  <%= form_for :supplier, url: company_supplier_path(@company, @supplier), method: :patch, remote: true do |f| %>
+      <div class="input-text">
+        <h4><%= f.text_field :name %></h4>
+      </div>
+      <div class="input-text">
+        <%= f.label :address, "Dirección" %>
+        <%= f.text_field :address %>
+      </div>
+      <div class="input-text">
+        <%= f.label :phone, "Teléfono" %>
+        <%= f.phone_field :phone %>
+      </div>
+      <div class="input-text">
+        <%= f.label :mail, "e-mail" %><%= f.email_field :mail %>
+      </div>
+      <div class="input-text">
+        <%= f.label :description, "Descripción" %>
+        <%= f.text_field :description %>
+      </div>
+      <div class="buttons">
+        <%= f.submit "Guardar" %>
+        <div class="cancel">
+          <%= link_to :back do %>
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+</div>

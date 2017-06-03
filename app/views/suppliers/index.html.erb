@@ -5,15 +5,9 @@
   <% end %>
 </div>
 
-<% @suppliers.each do |p| %>
-      <div class="col-md-4">
-        <div class="card">
-          <p><%= p.name %></p>
-          <p><%= p.address %></p>
-          <p><%= p.phone %></p>
-          <p><%= p.mail %></p>
-          <p><%= p.description %></p>
-        </div>
+<% @suppliers.each do |s| %>
+      <div class="col-md-4" id="<%= s.id %>">
+        <%=	 render partial: 'supplier', locals: {supplier: s} %>
       </div>
 <% end %>
 </div>

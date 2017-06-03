@@ -22,4 +22,10 @@ $(document).on("turbolinks:load", function(){
     $('a.prevent-default').click(function(event){
         event.preventDefault();
     });
+
+    $('div.with-options').hover(function() {
+        $(this).children('ul.options').fadeIn(100);
+    }, function() {
+        $(this).children('ul.options').fadeOut(100);
+    });
 })

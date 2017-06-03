@@ -21,8 +21,19 @@ class SuppliersController < ApplicationController
 
   end
 
+  def edit
+    @company = Company.find(params[:company_id])
+    @supplier = @company.suppliers.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+  end
+
   private
   def supplier_params
-    params.require(:supplier).permit(:name,:address,:phone,:mail)
+    params.require(:supplier).permit(:name,:address,:phone,:mail, :description)
   end
 end
