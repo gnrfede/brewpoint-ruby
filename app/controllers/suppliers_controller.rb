@@ -26,8 +26,22 @@ class SuppliersController < ApplicationController
     @supplier = @company.suppliers.find(params[:id])
 
     respond_to do |format|
-      format.html
       format.js
+      format.html
+    end
+  end
+
+  def update
+    @company = Company.find(params[:company_id])
+    @supplier = @company.suppliers.find(params[:id])
+
+    if @supplier.update(supplier_params)
+      redirect_to company_suppliers_path(@company)
+    else
+      respond_to do |format|
+        format.html
+        format.js {render 'edit'}
+      end
     end
 
   end

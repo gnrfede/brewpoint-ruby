@@ -6,8 +6,34 @@ html, body {
     display: none;
 }
 
+.card-list {
+    position: relative;
+    display: block;
+    margin: -10px;
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    overflow: auto;
+}
+
+.separator {
+    border-bottom: 1px solid grey;
+    border-color: #00695C;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.info-item {
+    color: #00695C;
+    font-weight: bold;
+}
+
 .info {
-    padding: 10px;
+    display: none;
+}
+
+.supplies-from-suppliers {
+    display: block;
 }
 
 .contenedor {
@@ -133,6 +159,11 @@ input:focus{
 
 .buttons {
     margin: 15px 10px;
+    overflow: auto;
+}
+
+.card-list .buttons {
+
 }
 
 .search-item {

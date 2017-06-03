@@ -23,9 +23,29 @@ $(document).on("turbolinks:load", function(){
         event.preventDefault();
     });
 
-    $('div.with-options').hover(function() {
-        $(this).children('ul.options').fadeIn(100);
-    }, function() {
-        $(this).children('ul.options').fadeOut(100);
+    $('.card-list').click(function (event) {
+        if(event.target == this || $(this).has($(event.target))) {
+            console.log("Card list");
+            $(this).children('.supplies-from-suppliers').fadeToggle(250);
+            $(this).children('.info').slideToggle(500);
+            $(this).children('.separator').fadeToggle(500);
+            $(this).children('ul.options').fadeToggle(500);
+        }
     });
+
+
+
+    $('.contenedor').click(function (event) {
+        if(event.target == this) {
+            console.log("Contenedor");
+            $('.supplies-from-suppliers').fadeIn(250);
+            $('.info').slideUp(500);
+            $('.separator').fadeOut(500);
+            $('ul.options').fadeOut(500);
+        }
+    });
+
+    $('.edit').click(function (event) {
+        console.log("Edit");
+    })
 })
